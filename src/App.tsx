@@ -13,23 +13,21 @@ function App() {
   const len = test.length;
   const [currentChar, setCurrentChar] = useState<number>(0);
   const [errorChar, setErrorChar] = useState<number>(-1);
-  const [messages, setMessages] = useState<string[]>([]);
+
   const [oppProgress, setProgress] = useState<number>(0);
   const [isConnected, setIsConnected] = useState<boolean>(false);
-  const [text, setText] = useState<string>('');
+  const text = '';
   const [gameover, setGameover] = useState<boolean>(false);
   const [iwon, setIwon] = useState<boolean>(true);
   useEffect(() => {
     // Listen for 'chat message' events from the server
-    socket.on('chat message', (msg: string) => {
-      setMessages((prevMessages) => [...prevMessages, msg]);
-    });
+   
 
     // Listen for the 'connect' event to update connection status
     socket.on('connect', () => {
       setIsConnected(true);
     });
-    socket.on('gameover', (msg: string) => {
+    socket.on('gameover', () => {
       setGameover(true);
       setIwon(false);
     });
