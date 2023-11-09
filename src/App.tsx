@@ -21,7 +21,7 @@ function App() {
   const [iwon, setIwon] = useState<boolean>(true);
   useEffect(() => {
     // Listen for 'chat message' events from the server
-   
+
 
     // Listen for the 'connect' event to update connection status
     socket.on('connect', () => {
@@ -72,13 +72,15 @@ function App() {
   }
   const status = calcPosition();
   console.log(status)
-  if (status.difference > 20 && !gameover) {
+  if ((status.difference > 20 || currentChar === len) && !gameover) {
     if (status.am_I_ahead) {
       socket.emit('gameover', 'shut up loser and cry over in the corner!');
       setGameover(true);
       setIwon(true);
     }
   }
+
+
   if (gameover)
     return (
       <div>
@@ -103,14 +105,13 @@ function App() {
       </div>
       <div className="image" style={{ left: `${status.am_I_ahead ? status.difference : -1 * status.difference}%` }} >
         <img src={image} alt="alternate" width={"50%"} />
-        {/* ----------0--------------|------------------------------------------------------------|-------------0----------- */}
       </div>
       <div className="typelayout">
         <textarea className='typebox' value={text} onChange={handleOnChange} ></textarea>
         <div className="type-hint">
           {test.split('').map((char, index) => (
             <span key={index}
-              className={index < currentChar ? 'correct' : `${index === errorChar ? 'incorrect' : 'untyped'}`}
+              className={index < currentChar ? 'correct' : `${index === errorChar ? 'incorrect' : `${index == currentChar ? 'untyped' : 'noone'}`}`}
             >
               {char}
             </span>

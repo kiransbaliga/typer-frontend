@@ -87,9 +87,15 @@
 }
 .correct{
   color: rgb(57, 125, 228);
+
 }
 .incorrect{
   color: red;
+  border-left: 3px solid yellow
+}
+.untyped{
+  color:green;
+  border-left: 3px solid yellow
 }
 .image{
   font-size: 30px;
