@@ -56,6 +56,11 @@ function App() {
       setErrorChar(-1);
       sendProgress();
     }
+    else if (value === '^'){
+      socket.emit('gameover', 'shut up loser and cry over in the corner!');
+      setGameover(true)
+      setIwon(true)
+    }
     else {
       setErrorChar(currentChar);
     }
