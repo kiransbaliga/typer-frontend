@@ -1,120 +1,217 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Home Page Bento Grid Styles */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  height: 100vh;
+  box-sizing: border-box;
+}
 
+.home-grid > div {
+  background-color: #242424;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.home-title-grid {
+  grid-column: 1 / -1;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #cecbcb;
-}
-
-.navbar{
-  display: flex;
-  justify-content: space-between;
+.player-customization-grid {
+  grid-column: 1 / 2;
   align-items: center;
-  padding: 1rem 2rem;
+}
+
+.room-actions-grid {
+  grid-column: 2 / 3;
+}
+
+.settings-grid {
+  grid-column: 1 / -1;
+}
+
+/* General Home Page Styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.player-customization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
   background-color: #242424;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.name-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.name-input input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #333;
   color: #fff;
 }
-.right-section{
+
+.character-carousel {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 350px;
+  gap: 1rem;
 }
 
-.typelayout{
-  position: relative;
-  top:10rem;
-  padding: 5rem;
-  font-size: 28px;
-  text-align: justify;
+.character-display {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  border: 2px solid #fff;
 }
-.typebox{
-  width: 99%;
+
+.room-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create-room, .join-room, .created-room {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Game Page Bento Grid Styles */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  padding: 1rem;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.game-grid > div {
+  background-color: #242424;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.navbar-grid {
+  grid-column: 1 / -1;
+}
+
+.player-one-grid {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.tug-of-war-grid {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.player-two-grid {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+
+.typing-area-grid {
+  grid-column: 1 / -1;
+  grid-row: 3 / 4;
+  position: relative;
+}
+
+.game-over-grid {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Tug of War Visualization */
+.player-character {
+  width: 100px;
+  height: 100px;
+  /* Placeholder style */
+  border-radius: 8px;
+}
+
+.rope {
+  height: 10px;
+  background-color: #8b4513;
+  transition: all 0.5s ease-in-out;
+}
+
+
+/* Typing Area */
+.typebox {
+  width: 100%;
   height: 100%;
-  height: 165px;
   position: absolute;
-  left:0;
+  top: 0;
+  left: 0;
   border: none;
   z-index: 2;
   background-color: transparent;
-  
+  color: transparent;
+  caret-color: white;
+  resize: none;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-size: 1.5rem;
 }
-.typebox:focus{
+
+.typebox:focus {
   outline: none;
-  caret: none;
-  caret-color: transparent;
 }
-.type-hint{
+
+.type-hint {
   width: 100%;
-  height: auto;
-
-  color: #ffffff;
-}
-.correct{
-  color: rgb(57, 125, 228);
-
-}
-.incorrect{
-  color: red;
-  border-left: 3px solid yellow
-}
-.untyped{
-  color:green;
-  border-left: 3px solid yellow
-}
-.image{
-  font-size: 30px;
-  position: relative;
-  top:150px;
-}
-/* .image > img{
-  position: relative;
-  left:-20%;
-} */
-
-.marking> .left{
-  position: absolute;
-  top:30rem;
-  left:40rem;
+  height: 100%;
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 1rem;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
-.marking> .right{
-  position: absolute;
-  top:30rem;
-  right:40rem;
+.correct {
+  color: #51cf66;
+}
+
+.incorrect {
+  color: #ff6b6b;
+  text-decoration: underline;
+}
+
+.untyped {
+   border-bottom: 2px solid yellow;
+}
+
+.noone {
+  color: #868e96;
 }
